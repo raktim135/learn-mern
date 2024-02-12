@@ -16,10 +16,10 @@ const uploadToCloudinary = async (localFilePath) => {
                 resource_type: "auto"
             }, 
             function(error, result) {
-                console.log(result);
+                // console.log(result);
             }
         );
-        // fs.unlinkSync(localFilePath)
+        fs.unlinkSync(localFilePath)
         // console.log("file is uploaded to cloudnairy.", response.url);
         return response;
     }
