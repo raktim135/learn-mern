@@ -1,9 +1,3 @@
-// const asyncHandler = (fn) => {
-//     return (req, res, next) => {
-//         Promise.resolve(fn(req, res, next)).catch((err) => next(err));
-//     }
-// }
-
 const asyncHandler = (fn) => {
     return (req, res, next) => {
         Promise.resolve(fn(req, res, next)).catch((err) => {
@@ -11,17 +5,6 @@ const asyncHandler = (fn) => {
         });
     }
 }
-
-// const asyncHandler = (requestHandler) => {
-//     return (req, res, next) => {
-//         Promise.resolve(requestHandler(req, res, next)).catch((err) => {
-//             console.log(err)
-//             res.status(err.code || 500).json(err);
-
-//             // next(err)
-//         });
-//     };
-// };
 
 // const asyncHandler = (fn) => async (req, res, next) => {
 //     try {
