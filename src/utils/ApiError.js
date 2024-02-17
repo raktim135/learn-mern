@@ -1,33 +1,19 @@
 class ApiError extends Error {
-    /**
-     *
-     * @param {number} statusCode
-     * @param {string} message
-     * @param {any[]} errors
-     * @param {string} stack
-     */
-    constructor(
-      statusCode,
-      message = "Something went wrong",
-      errors = [],
-      stack = ""
-    ) {
-        // console.log(message)
+    constructor(statusCode, message, errors = [], stack = "") {
+        // super(message);
         super();
         this.statusCode = statusCode;
-        this.data = null;
         this.message = message;
+        this.data = null;
         this.success = false;
         this.errors = errors;
 
-        // console.log(this.message)
-    
         if (stack) {
             this.stack = stack;
         } else {
             Error.captureStackTrace(this, this.constructor);
         }
     }
-  }
-  
-  export { ApiError };
+}
+
+export { ApiError };

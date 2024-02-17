@@ -7,7 +7,7 @@ import {asyncHandler} from "../utils/asyncHandler.js";
 const subscribeChannel = asyncHandler(async (req, res) => {
 	try {
 		const {subscribingChannel} = req.body;
-		if ([subscribingChannel].some((user) => user == null) || [subscribingChannel].some((user) => user === "")) {
+		if ([subscribingChannel].some((user) => user?.trim() === "")) {
 			throw new ApiError(409, "Please pass subscribing channel details.");
 		}
 
