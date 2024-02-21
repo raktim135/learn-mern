@@ -15,14 +15,11 @@ app.use(express.static("public"));
 app.use(cookieParser());
 
 //import routes
-import userRouter from "./routes/user.routes.js";
-import subscriptionRouter from "./routes/subscription.routes.js";
-import videoRouter from "./routes/video.routes.js";
+import layerZeroScannerRouter from "./routes/layerZeroScannerRouter.routes.js";
 
 //routes declaration
-app.use("/api/v1/user", userRouter);
-app.use("/api/v1/subscription", subscriptionRouter);
-app.use("/api/v1/video", videoRouter);
+app.use("/api/v1/layer-zero", layerZeroScannerRouter);
+
 
 app.get("/", (req, res) => {
 	res.send("This is a sample page!");
